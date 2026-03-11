@@ -1,4 +1,7 @@
+'use client'
+
 import { CheckCircle2, Trophy, Clock, ShieldCheck, Users, Banknote } from "lucide-react"
+import { motion } from "framer-motion"
 
 const FEATURES = [
     {
@@ -52,8 +55,12 @@ export function WhyChooseUs() {
                     {FEATURES.map((feature, index) => {
                         const Icon = feature.icon
                         return (
-                            <div
+                            <motion.div
                                 key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
                                 className="group flex gap-4 rounded-xl border border-white/10 bg-white/5 p-6 transition-all hover:border-accent/50 hover:bg-white/10"
                             >
                                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10 px-0 transition-colors group-hover:bg-accent text-accent group-hover:text-primary">
@@ -67,7 +74,7 @@ export function WhyChooseUs() {
                                         {feature.description}
                                     </p>
                                 </div>
-                            </div>
+                            </motion.div>
                         )
                     })}
                 </div>

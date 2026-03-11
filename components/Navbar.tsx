@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -32,41 +33,49 @@ export default function Navbar() {
             <div className="hidden bg-primary text-primary-foreground md:block">
                 <div className="container mx-auto flex h-10 items-center justify-between px-4 text-sm font-medium">
                     <div className="flex items-center space-x-6">
-                        <span className="flex items-center">
+                        <a href="tel:+918494913111" className="flex items-center transition-colors hover:text-accent">
                             <Phone className="mr-2 h-4 w-4 text-accent" />
                             +91 8494913111
-                        </span>
-                        <span className="flex items-center">
+                        </a>
+                        <a href="mailto:srinandiconstruction21@gmail.com" className="flex items-center transition-colors hover:text-accent">
                             <Mail className="mr-2 h-4 w-4 text-accent" />
                             srinandiconstruction21@gmail.com
-                        </span>
+                        </a>
                     </div>
-                    <div className="flex items-center">
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Shree+Nandi+Construction,+Lake+View+Garden+Rd,+Horamavu,+K+Channasandra,+Bengaluru,+Huvinane,+Karnataka+560113"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center transition-colors hover:text-accent"
+                    >
                         <MapPin className="mr-2 h-4 w-4 text-accent" />
                         Horamavu, Bangalore - 43
-                    </div>
+                    </a>
                 </div>
             </div>
 
             {/* Main Navbar */}
             <header
                 className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
-                        ? 'bg-white/95 py-3 shadow-md backdrop-blur-sm'
-                        : 'bg-white py-4 shadow-sm'
+                    ? 'bg-white/95 py-3 shadow-md backdrop-blur-sm'
+                    : 'bg-white py-4 shadow-sm'
                     }`}
             >
                 <div className="container mx-auto flex items-center justify-between px-4">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
-                        <div className="flex h-10 w-10 flex-col items-center justify-center rounded bg-accent font-bold text-primary shadow-sm">
-                            <span className="text-xl leading-none">SN</span>
-                            <span className="text-[10px] leading-none uppercase tracking-wider">Const</span>
-                        </div>
-                        <div className="flex flex-col">
-                            <span className="text-xl font-bold uppercase tracking-tight text-primary">
+                    <Link href="/" className="flex items-center gap-3">
+                        <Image
+                            src="/images/srinandilogo.png"
+                            alt="Sri Nandi Construction Logo"
+                            width={160}
+                            height={48}
+                            className="h-12 w-auto object-contain"
+                        />
+                        <div className="flex flex-col hidden sm:flex">
+                            <span className="text-xl font-bold tracking-tight text-primary leading-none">
                                 Sri Nandi
                             </span>
-                            <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                            <span className="text-[11px] font-bold tracking-widest text-primary/80 mt-1">
                                 Construction
                             </span>
                         </div>

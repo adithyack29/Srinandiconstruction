@@ -1,4 +1,7 @@
+'use client'
+
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { MapPin } from "lucide-react"
 import { SectionHeader } from "./SectionHeader"
 import { projectsData } from "@/data/projects"
@@ -24,9 +27,13 @@ export function Projects() {
                 </div>
 
                 <div className="grid gap-8 md:grid-cols-2">
-                    {featuredProjects.map((project) => (
-                        <div
+                    {featuredProjects.map((project, index) => (
+                        <motion.div
                             key={project.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
                             className="group relative overflow-hidden rounded-xl bg-gray-100 shadow-md"
                         >
                             {/* Project Image */}
@@ -58,7 +65,7 @@ export function Projects() {
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 

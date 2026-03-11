@@ -28,7 +28,7 @@ export function CTA() {
                         </Link>
                     </Button>
 
-                    <Button size="lg" variant="outline" className="h-14 border-white px-8 font-bold text-white hover:bg-white hover:text-primary">
+                    <Button size="lg" className="h-14 bg-white px-8 font-bold text-primary hover:bg-white/90 shadow-lg">
                         <a href="tel:+918494913111" className="flex items-center">
                             <PhoneCall className="mr-2 h-5 w-5" />
                             +91 8494913111

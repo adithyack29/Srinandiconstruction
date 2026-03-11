@@ -51,7 +51,7 @@ export function Hero() {
                         <Button size="lg" className="bg-accent text-primary hover:bg-accent/90 h-14 px-8 text-base font-bold">
                             <Link href="/contact">Get Free Quote</Link>
                         </Button>
-                        <Button size="lg" variant="outline" className="h-14 px-8 text-base font-bold text-white border-white hover:bg-white hover:text-primary">
+                        <Button size="lg" className="bg-white text-primary hover:bg-white/90 h-14 px-8 text-base font-bold shadow-lg">
                             <Link href="/services">View Services</Link>
                         </Button>
                     </motion.div>

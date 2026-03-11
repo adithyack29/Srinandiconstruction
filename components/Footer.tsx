@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Facebook, Instagram, Linkedin, Twitter, Mail, MapPin, Phone } from 'lucide-react'
 
 export default function Footer() {
@@ -9,17 +10,13 @@ export default function Footer() {
                     {/* Company Info */}
                     <div>
                         <div className="mb-6 flex items-center gap-2">
-                            <div className="flex h-10 w-10 flex-col items-center justify-center rounded bg-accent font-bold text-primary shadow-sm">
-                                <span className="text-xl leading-none">SN</span>
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="text-xl font-bold uppercase tracking-tight text-white">
-                                    Sri Nandi
-                                </span>
-                                <span className="text-xs font-semibold uppercase tracking-widest text-gray-300">
-                                    Construction
-                                </span>
-                            </div>
+                            <Image
+                                src="/images/srinandilogo.png"
+                                alt="Sri Nandi Construction Logo"
+                                width={160}
+                                height={64}
+                                className="h-16 w-auto object-contain brightness-0 invert"
+                            />
                         </div>
                         <p className="mb-6 text-sm leading-relaxed text-gray-300">
                             Building dreams and crafting realities. We are a premier construction company based in Bangalore, delivering excellence in residential and commercial projects.
@@ -89,16 +86,21 @@ export default function Footer() {
                         <h3 className="mb-6 text-lg font-bold">Contact Info</h3>
                         <ul className="space-y-4 text-sm text-gray-300">
                             <li className="flex items-start">
-                                <MapPin className="mr-3 h-5 w-5 shrink-0 text-accent" />
-                                <span>
+                                <MapPin className="mr-3 h-5 w-5 shrink-0 text-accent group-hover:text-accent" />
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=Shree+Nandi+Construction,+Lake+View+Garden+Rd,+Horamavu,+K+Channasandra,+Bengaluru,+Huvinane,+Karnataka+560113"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="transition-colors hover:text-accent"
+                                >
                                     Lakeview Garden<br />
                                     K. Channasandra, Horamavu<br />
                                     Bangalore – 43
-                                </span>
+                                </a>
                             </li>
                             <li className="flex items-center">
                                 <Phone className="mr-3 h-5 w-5 shrink-0 text-accent" />
-                                <span>+91 8494913111</span>
+                                <a href="tel:+918494913111" className="transition-colors hover:text-accent">+91 8494913111</a>
                             </li>
                             <li className="flex items-center">
                                 <Mail className="mr-3 h-5 w-5 shrink-0 text-accent" />
