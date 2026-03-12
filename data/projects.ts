@@ -1,50 +1,50 @@
 export const projectsData = [
     {
         id: "project-1",
-        title: "Luxury Villa at Whitefield",
+        title: "Project 1",
         category: "Residential",
-        location: "Whitefield, Bangalore",
-        description: "A premium 4BHK luxury villa featuring modern architecture and smart home integration.",
+        location: "Location 1",
+        description: "Description 1",
         image: "/images/project-placeholder.jpg"
     },
     {
         id: "project-2",
-        title: "Tech Park Office Complex",
+        title: "Project 2",
         category: "Commercial",
-        location: "Electronic City, Bangalore",
-        description: "State-of-the-art office spaces designed for modern IT companies with green building certification.",
+        location: "Location 2",
+        description: "Description 2",
         image: "/images/project-placeholder.jpg"
     },
     {
         id: "project-3",
-        title: "Urban Apartment Complex",
+        title: "Project 3",
         category: "Residential",
-        location: "HSR Layout, Bangalore",
-        description: "A comprehensive residential complex featuring 50+ amenities and sustainable living.",
+        location: "Location 3",
+        description: "Description 3",
         image: "/images/project-placeholder.jpg"
     },
     {
         id: "project-4",
-        title: "Corporate Headquarters Remodel",
+        title: "Project 4",
         category: "Renovation",
-        location: "Koramangala, Bangalore",
-        description: "Complete interior and exterior renovation of a 5-story corporate building.",
+        location: "Location 4",
+        description: "Description 4",
         image: "/images/project-placeholder.jpg"
     },
     {
         id: "project-5",
-        title: "Modern Minimalist Duplex",
+        title: "Project 5",
         category: "Residential",
-        location: "Indiranagar, Bangalore",
-        description: "Custom-built duplex home focusing on natural light, cross-ventilation, and minimalist aesthetics.",
+        location: "Location 5",
+        description: "Description 5",
         image: "/images/project-placeholder.jpg"
     },
     {
         id: "project-6",
-        title: "Retail Shopping Plaza",
+        title: "Project 6",
         category: "Commercial",
-        location: "Jayanagar, Bangalore",
-        description: "Multi-level shopping complex featuring premium retail spaces and food courts.",
+        location: "Location 6",
+        description: "Description 6",
         image: "/images/project-placeholder.jpg"
     }
 ];

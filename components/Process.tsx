@@ -1,3 +1,5 @@
+'use client'
+
 import {
     ClipboardCheck,
     PenTool,
@@ -5,6 +7,7 @@ import {
     SearchCheck,
     KeyRound
 } from "lucide-react"
+import { motion } from "framer-motion"
 
 const PROCESS_STEPS = [
     {
@@ -57,7 +60,14 @@ export function Process() {
                         {PROCESS_STEPS.map((step, index) => {
                             const Icon = step.icon
                             return (
-                                <div key={index} className="relative flex flex-col items-center text-center">
+                                <motion.div 
+                                    key={index}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                                    className="relative flex flex-col items-center text-center"
+                                >
 
                                     {/* Step Number Badge */}
                                     <div className="absolute -top-3 right-1/2 z-10 flex h-8 w-8 translate-x-1/2 items-center justify-center rounded-full bg-primary font-bold text-white shadow-md lg:-right-3 lg:-top-3 lg:translate-x-0">
@@ -76,7 +86,7 @@ export function Process() {
                                     <p className="text-sm leading-relaxed text-muted-foreground">
                                         {step.description}
                                     </p>
-                                </div>
+                                </motion.div>
                             )
                         })}
                     </div>

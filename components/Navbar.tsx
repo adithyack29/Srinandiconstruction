@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+
 
 const NAV_LINKS = [
     { name: 'Home', href: '/' },
@@ -43,7 +43,7 @@ export default function Navbar() {
                         </a>
                     </div>
                     <a
-                        href="https://www.google.com/maps/search/?api=1&query=Shree+Nandi+Construction,+Lake+View+Garden+Rd,+Horamavu,+K+Channasandra,+Bengaluru,+Huvinane,+Karnataka+560113"
+                        href="https://www.google.com/maps/place/Shree+Nandi+Construction/@13.0458596,77.6807377,19z/data=!3m1!4b1!4m6!3m5!1s0x3bae11a373422c8b:0xeaa99269a934d60!8m2!3d13.0458596!4d77.6813814!16s%2Fg%2F11y8ty8_5x?entry=ttu&g_ep=EgoyMDI2MDMwOS4wIKXMDSoASAFQAw%3D%3D"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center transition-colors hover:text-accent"
@@ -71,12 +71,17 @@ export default function Navbar() {
                             height={48}
                             className="h-12 w-auto object-contain"
                         />
-                        <div className="flex flex-col hidden sm:flex">
-                            <span className="text-xl font-bold tracking-tight text-primary leading-none">
-                                Sri Nandi
-                            </span>
-                            <span className="text-[11px] font-bold tracking-widest text-primary/80 mt-1">
-                                Construction
+                        <div className="flex flex-col font-sans">
+                            <div className="flex items-baseline gap-1.5">
+                                <span className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-600">
+                                    Sri
+                                </span>
+                                <span className="text-3xl sm:text-4xl font-extrabold tracking-tighter text-gray-600 leading-none bg-gradient-to-b from-gray-400 to-gray-700 bg-clip-text text-transparent">
+                                    Nandi
+                                </span>
+                            </div>
+                            <span className="text-[8px] sm:text-[10px] font-bold tracking-[0.4em] text-[#d4af37] mt-0.5 ml-0.5">
+                                CONSTRUCTION
                             </span>
                         </div>
                     </Link>
@@ -92,9 +97,6 @@ export default function Navbar() {
                                 {link.name}
                             </Link>
                         ))}
-                        <Button className="bg-accent font-semibold text-primary hover:bg-accent/90">
-                            <Link href="/contact">Get a Quote</Link>
-                        </Button>
                     </nav>
 
                     {/* Mobile Menu Toggle */}
@@ -112,27 +114,24 @@ export default function Navbar() {
                 </div>
 
                 {/* Mobile Navigation */}
-                {isMobileMenuOpen && (
-                    <div className="absolute left-0 top-full w-full border-b bg-white p-4 shadow-lg md:hidden">
-                        <nav className="flex flex-col space-y-4">
-                            {NAV_LINKS.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="text-base font-semibold text-primary transition-colors hover:text-accent"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                            <Button className="w-full bg-accent text-primary hover:bg-accent/90">
-                                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                                    Get a Quote
-                                </Link>
-                            </Button>
-                        </nav>
-                    </div>
-                )}
+                <div 
+                    className={`absolute left-0 top-full w-full border-b bg-white p-4 shadow-lg md:hidden transition-all duration-300 ease-in-out ${
+                        isMobileMenuOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'
+                    }`}
+                >
+                    <nav className="flex flex-col space-y-4">
+                        {NAV_LINKS.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className="text-base font-semibold text-primary transition-colors hover:text-accent p-2 rounded-lg hover:bg-gray-50"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </nav>
+                </div>
             </header>
         </>
     )

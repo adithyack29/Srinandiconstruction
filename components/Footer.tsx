@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Facebook, Instagram, Linkedin, Twitter, Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 
 export default function Footer() {
     return (
@@ -21,20 +21,7 @@ export default function Footer() {
                         <p className="mb-6 text-sm leading-relaxed text-gray-300">
                             Building dreams and crafting realities. We are a premier construction company based in Bangalore, delivering excellence in residential and commercial projects.
                         </p>
-                        <div className="flex space-x-4">
-                            <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-accent hover:text-primary">
-                                <Facebook className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-accent hover:text-primary">
-                                <Twitter className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-accent hover:text-primary">
-                                <Instagram className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-accent hover:text-primary">
-                                <Linkedin className="h-5 w-5" />
-                            </a>
-                        </div>
+
                     </div>
 
                     {/* Quick Links */}
@@ -88,7 +75,7 @@ export default function Footer() {
                             <li className="flex items-start">
                                 <MapPin className="mr-3 h-5 w-5 shrink-0 text-accent group-hover:text-accent" />
                                 <a
-                                    href="https://www.google.com/maps/search/?api=1&query=Shree+Nandi+Construction,+Lake+View+Garden+Rd,+Horamavu,+K+Channasandra,+Bengaluru,+Huvinane,+Karnataka+560113"
+                                    href="https://www.google.com/maps/place/Shree+Nandi+Construction/@13.0458596,77.6807377,19z/data=!3m1!4b1!4m6!3m5!1s0x3bae11a373422c8b:0xeaa99269a934d60!8m2!3d13.0458596!4d77.6813814!16s%2Fg%2F11y8ty8_5x?entry=ttu&g_ep=EgoyMDI2MDMwOS4wIKXMDSoASAFQAw%3D%3D"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="transition-colors hover:text-accent"

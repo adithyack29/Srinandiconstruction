@@ -1,6 +1,8 @@
-import Link from "next/link"
-import { ArrowRight, PhoneCall } from "lucide-react"
+'use client'
+
+import { PhoneCall } from "lucide-react"
 import { Button } from "./ui/button"
+import { motion } from "framer-motion"
 
 export function CTA() {
     return (
@@ -11,7 +13,13 @@ export function CTA() {
                 <div className="absolute -bottom-40 right-10 h-80 w-80 rounded-full bg-accent blur-3xl" />
             </div>
 
-            <div className="container relative z-10 mx-auto px-4 text-center">
+            <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="container relative z-10 mx-auto px-4 text-center"
+            >
                 <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
                     Ready to Build Your <span className="text-accent">Dream Space?</span>
                 </h2>
@@ -21,21 +29,14 @@ export function CTA() {
                 </p>
 
                 <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                    <Button size="lg" className="group h-14 bg-accent px-8 font-bold text-primary hover:bg-accent/90">
-                        <Link href="/contact" className="flex items-center">
-                            Start Your Project
-                            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                        </Link>
-                    </Button>
-
-                    <Button size="lg" className="h-14 bg-white px-8 font-bold text-primary hover:bg-white/90 shadow-lg">
+                    <Button size="lg" className="h-14 bg-accent px-10 font-bold text-primary hover:bg-accent/90 shadow-lg">
                         <a href="tel:+918494913111" className="flex items-center">
-                            <PhoneCall className="mr-2 h-5 w-5" />
-                            +91 8494913111
+                            <PhoneCall className="mr-3 h-6 w-6" />
+                            Call Us: +91 8494913111
                         </a>
                     </Button>
                 </div>
-            </div>
+            </motion.div>
         </section>
     )
 }
