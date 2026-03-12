@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Sri Nandi Construction | Residential & Commercial Construction Bangalore',
   description: 'Sri Nandi Construction offers residential construction, commercial projects, renovation, interiors, and civil works in Bangalore.',
   icons: {
-    icon: '/images/srinandilogo.png',
+    icon: '/favicon.ico',
     apple: '/images/srinandilogo.png',
   },
 }
