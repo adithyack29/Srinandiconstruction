@@ -5,9 +5,11 @@ import {
     PenTool,
     HardHat,
     SearchCheck,
-    KeyRound
+    KeyRound,
+    Info
 } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
 
 const PROCESS_STEPS = [
     {
@@ -37,30 +39,108 @@ const PROCESS_STEPS = [
     },
 ]
 
+const floatingAnimation = {
+    y: [0, -8, 0],
+    transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut" as const
+    }
+}
+
 export function Process() {
+    const [activeIndex, setActiveIndex] = useState<number | null>(null)
+
     return (
-        <section className="bg-gray-50 py-24">
+        <section className="bg-gray-50 py-16 md:py-24 overflow-hidden">
             <div className="container mx-auto px-4">
-                <div className="mb-16 text-center">
+                <div className="mb-12 md:mb-16 text-center">
                     <h2 className="mb-4 text-3xl font-bold tracking-tight text-primary md:text-5xl">
                         Our Construction Process
                     </h2>
                     <div className="mx-auto mt-4 h-1 w-20 bg-accent" />
-                    <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+                    <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg text-muted-foreground px-4">
                         A transparent, step-by-step approach ensuring your project is delivered on time, within budget, and to the highest standards.
                     </p>
                 </div>
 
-                {/* Process Steps container */}
-                <div className="relative mx-auto max-w-5xl">
-                    {/* Connecting Line - hidden on mobile */}
-                    <div className="absolute left-1/2 top-24 hidden h-full w-1 origin-top -translate-x-1/2 bg-gray-200 lg:block lg:h-1 lg:w-full lg:-translate-y-1/2 lg:translate-x-0 lg:left-0" />
+                {/* Mobile Circular Layout */}
+                <div className="relative mx-auto h-[450px] w-full max-w-[350px] mt-8 block lg:hidden">
+                    {PROCESS_STEPS.map((step, index) => {
+                        const Icon = step.icon
+                        // Calculate positions for a pentagon
+                        const angle = (index * (360 / 5)) - 90 // Start from top
+                        const radius = 130 // px
+                        const x = radius * Math.cos((angle * Math.PI) / 180)
+                        const y = radius * Math.sin((angle * Math.PI) / 180)
 
-                    <div className="grid gap-12 lg:grid-cols-5 lg:gap-6">
+                        return (
+                            <div
+                                key={index}
+                                className="absolute left-1/2 top-1/2"
+                                style={{
+                                    transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
+                                }}
+                            >
+                                <motion.div
+                                    animate={floatingAnimation}
+                                    className="flex flex-col items-center"
+                                >
+                                    <button
+                                        onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+                                        className={`relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-white bg-accent text-primary shadow-lg transition-all active:scale-95 ${activeIndex === index ? 'ring-4 ring-primary/20 scale-110' : ''}`}
+                                    >
+                                        <Icon className="h-7 w-7" />
+                                        <div className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">
+                                            {index + 1}
+                                        </div>
+                                    </button>
+                                    <span className="mt-2 text-center text-[11px] font-bold leading-tight text-primary max-w-[70px]">
+                                        {step.title}
+                                    </span>
+                                </motion.div>
+                            </div>
+                        )
+                    })}
+
+                    {/* Center area for instructions/descriptions */}
+                    <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-inner flex items-center justify-center p-4 text-center">
+                        <AnimatePresence mode="wait">
+                            {activeIndex !== null ? (
+                                <motion.div
+                                    key={activeIndex}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    className="text-center"
+                                >
+                                    <p className="text-[10px] leading-tight text-muted-foreground">
+                                        {PROCESS_STEPS[activeIndex].description}
+                                    </p>
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    className="flex flex-col items-center gap-1"
+                                >
+                                    <Info className="h-5 w-5 text-accent animate-pulse" />
+                                    <p className="text-[10px] text-muted-foreground font-medium">Click on any step to see details</p>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                </div>
+
+                {/* Desktop Layout - Unchanged horizontal grid with floating effect */}
+                <div className="relative mx-auto max-w-5xl hidden lg:block">
+                    <div className="absolute top-12 h-0.5 w-[80%] left-[10%] -translate-y-1/2 bg-gray-200 z-[-1]" />
+
+                    <div className="relative grid grid-cols-5 gap-6">
                         {PROCESS_STEPS.map((step, index) => {
                             const Icon = step.icon
                             return (
-                                <motion.div 
+                                <motion.div
                                     key={index}
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -68,18 +148,17 @@ export function Process() {
                                     transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
                                     className="relative flex flex-col items-center text-center"
                                 >
-
-                                    {/* Step Number Badge */}
-                                    <div className="absolute -top-3 right-1/2 z-10 flex h-8 w-8 translate-x-1/2 items-center justify-center rounded-full bg-primary font-bold text-white shadow-md lg:-right-3 lg:-top-3 lg:translate-x-0">
+                                    <div className="absolute -top-3 right-0 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-primary font-bold text-white shadow-md">
                                         {index + 1}
                                     </div>
 
-                                    {/* Icon Circle */}
-                                    <div className="relative z-0 mb-6 flex h-24 w-24 shrink-0 items-center justify-center rounded-full border-4 border-white bg-accent text-primary shadow-xl transition-transform hover:scale-110">
+                                    <motion.div
+                                        animate={floatingAnimation}
+                                        className="relative z-0 mb-6 flex h-24 w-24 shrink-0 items-center justify-center rounded-full border-4 border-white bg-accent text-primary shadow-xl transition-transform hover:scale-110"
+                                    >
                                         <Icon className="h-10 w-10" />
-                                    </div>
+                                    </motion.div>
 
-                                    {/* Content */}
                                     <h3 className="mb-3 text-xl font-bold text-primary">
                                         {step.title}
                                     </h3>
@@ -95,3 +174,4 @@ export function Process() {
         </section>
     )
 }
+
