@@ -8,10 +8,15 @@ export function Hero() {
     return (
         <section className="relative h-[90vh] min-h-[600px] w-full bg-primary overflow-hidden">
             {/* Background Image */}
-            <div
-                className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40"
-                style={{ backgroundImage: 'url("/images/hero-bg.png")' }}
-            >
+            <div className="absolute inset-0 z-0 opacity-40">
+                <div 
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
+                    style={{ backgroundImage: 'url("/images/hero-bg.png")' }}
+                />
+                <div 
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+                    style={{ backgroundImage: 'url("/images/hero-mobile-bg.png")' }}
+                />
                 <div className="absolute inset-0 bg-black/50" />
             </div>
 
