@@ -1,11 +1,11 @@
 export const projectsData = [
     {
         id: "project-1",
-        title: "Project 1",
+        title: "",
         category: "Residential",
-        location: "Location 1",
-        description: "Description 1",
-        image: "/images/project-placeholder.jpg"
+        location: "",
+        description: "",
+        image: "/images/Project1.png"
     },
     {
         id: "project-2",

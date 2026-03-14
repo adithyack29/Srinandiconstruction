@@ -34,17 +34,19 @@ export function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-                            className="group relative overflow-hidden rounded-xl bg-gray-100 shadow-md"
+                            className="group relative flex flex-col overflow-hidden rounded-xl bg-gray-100 shadow-md h-full"
                         >
                             {/* Project Image */}
-                            <div className="relative aspect-[4/3] w-full overflow-hidden">
+                            <div className={`relative w-full overflow-hidden ${!(project.title || project.location || project.description) ? 'flex-1' : 'aspect-[4/3]'}`}>
                                 <div
-                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105"
-                                    style={{ backgroundImage: `url('/images/project-placeholder.jpg')` }}
+                                    className={`absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105 ${!(project.title || project.location || project.description) ? 'h-full' : ''}`}
+                                    style={{ backgroundImage: `url('${project.image}')` }}
                                 />
 
                                 {/* Overlay gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-80" />
+                                {(project.title || project.location || project.description) && (
+                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-80" />
+                                )}
 
                                 {/* Category Badge */}
                                 <span className="absolute left-6 top-6 rounded-full bg-accent px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
@@ -52,18 +54,26 @@ export function Projects() {
                                 </span>
 
                                 {/* Content Overlay */}
-                                <div className="absolute bottom-0 left-0 w-full p-6 text-white sm:p-8">
-                                    <h3 className="mb-2 text-2xl font-bold md:text-3xl">
-                                        {project.title}
-                                    </h3>
-                                    <div className="mb-4 flex items-center text-gray-300">
-                                        <MapPin className="mr-2 h-4 w-4 text-accent" />
-                                        <span className="text-sm font-medium">{project.location}</span>
+                                {(project.title || project.location || project.description) && (
+                                    <div className="absolute bottom-0 left-0 w-full p-6 text-white sm:p-8">
+                                        {project.title && (
+                                            <h3 className="mb-2 text-2xl font-bold md:text-3xl">
+                                                {project.title}
+                                            </h3>
+                                        )}
+                                        {project.location && (
+                                            <div className="mb-4 flex items-center text-gray-300">
+                                                <MapPin className="mr-2 h-4 w-4 text-accent" />
+                                                <span className="text-sm font-medium">{project.location}</span>
+                                            </div>
+                                        )}
+                                        {project.description && (
+                                            <p className="line-clamp-2 text-sm text-gray-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                                {project.description}
+                                            </p>
+                                        )}
                                     </div>
-                                    <p className="line-clamp-2 text-sm text-gray-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        {project.description}
-                                    </p>
-                                </div>
+                                )}
                             </div>
                         </motion.div>
                     ))}

@@ -8,7 +8,7 @@ export function ProjectsContent() {
     return (
         <>
             <section className="bg-primary py-20 text-primary-foreground">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -34,13 +34,13 @@ export function ProjectsContent() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-transform hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/20 border border-gray-100"
+                                className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-transform hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/20 border border-gray-100 h-full"
                             >
                                 {/* Image Area */}
-                                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                                <div className={`relative w-full overflow-hidden ${!(project.title || project.location || project.description) ? 'flex-1' : 'aspect-[4/3]'}`}>
                                     <div
                                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110"
-                                        style={{ backgroundImage: `url('/images/project-placeholder.jpg')` }}
+                                        style={{ backgroundImage: `url('${project.image}')` }}
                                     />
 
                                     {/* Category Badge */}
@@ -50,20 +50,28 @@ export function ProjectsContent() {
                                 </div>
 
                                 {/* Content Area */}
-                                <div className="flex flex-1 flex-col p-6">
-                                    <h3 className="mb-3 text-xl font-bold text-primary transition-colors group-hover:text-accent">
-                                        {project.title}
-                                    </h3>
+                                {(project.title || project.location || project.description) && (
+                                    <div className="flex flex-1 flex-col p-6">
+                                        {project.title && (
+                                            <h3 className="mb-3 text-xl font-bold text-primary transition-colors group-hover:text-accent">
+                                                {project.title}
+                                            </h3>
+                                        )}
 
-                                    <div className="mb-4 flex items-center text-muted-foreground text-sm font-medium">
-                                        <MapPin className="mr-2 h-4 w-4 text-accent" />
-                                        {project.location}
+                                        {project.location && (
+                                            <div className="mb-4 flex items-center text-muted-foreground text-sm font-medium">
+                                                <MapPin className="mr-2 h-4 w-4 text-accent" />
+                                                {project.location}
+                                            </div>
+                                        )}
+
+                                        {project.description && (
+                                            <p className="text-gray-600 leading-relaxed text-sm flex-1">
+                                                {project.description}
+                                            </p>
+                                        )}
                                     </div>
-
-                                    <p className="text-gray-600 leading-relaxed text-sm flex-1">
-                                        {project.description}
-                                    </p>
-                                </div>
+                                )}
                             </motion.div>
                         ))}
                     </div>

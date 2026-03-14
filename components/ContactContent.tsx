@@ -118,12 +118,7 @@ export function ContactContent() {
                                         style={{ backgroundImage: `url('/images/map-location.png')` }}
                                     />
                                     <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/20" />
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="relative">
-                                            <div className="absolute -inset-4 rounded-full bg-accent/20 blur-xl transition-all duration-300 group-hover:bg-accent/40" />
-                                            <MapPin className="relative h-16 w-16 text-primary transition-transform duration-300 group-hover:scale-125" />
-                                        </div>
-                                    </div>
+
                                 </a>
                             </motion.div>
                         </div>
