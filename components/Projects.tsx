@@ -37,9 +37,9 @@ export function Projects() {
                             className="group relative flex flex-col overflow-hidden rounded-xl bg-gray-100 shadow-md h-full"
                         >
                             {/* Project Image */}
-                            <div className={`relative w-full overflow-hidden ${!(project.title || project.location || project.description) ? 'flex-1' : 'aspect-[4/3]'}`}>
+                            <div className={`relative w-full overflow-hidden ${!(project.title || project.location || project.description) ? 'aspect-[3/4]' : 'aspect-[4/3]'}`}>
                                 <div
-                                    className={`absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105 ${!(project.title || project.location || project.description) ? 'h-full' : ''}`}
+                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105"
                                     style={{ backgroundImage: `url('${project.image}')` }}
                                 />
 
