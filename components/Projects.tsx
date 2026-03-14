@@ -34,10 +34,10 @@ export function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-                            className="group relative flex flex-col overflow-hidden rounded-xl bg-gray-100 shadow-md h-full"
+                            className="group relative overflow-hidden rounded-xl bg-gray-100 shadow-md"
                         >
                             {/* Project Image */}
-                            <div className={`relative w-full overflow-hidden ${!(project.title || project.location || project.description) ? 'aspect-[3/4]' : 'aspect-[4/3]'}`}>
+                            <div className="relative aspect-[4/3] w-full overflow-hidden">
                                 <div
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105"
                                     style={{ backgroundImage: `url('${project.image}')` }}

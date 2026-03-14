@@ -37,7 +37,7 @@ export function ProjectsContent() {
                                 className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-transform hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/20 border border-gray-100 h-full"
                             >
                                 {/* Image Area */}
-                                <div className={`relative w-full overflow-hidden ${!(project.title || project.location || project.description) ? 'aspect-[3/4]' : 'aspect-[4/3]'}`}>
+                                <div className={`relative w-full overflow-hidden aspect-[4/3] ${!(project.title || project.location || project.description) ? 'flex-1 min-h-[300px]' : ''}`}>
                                     <div
                                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110"
                                         style={{ backgroundImage: `url('${project.image}')` }}
