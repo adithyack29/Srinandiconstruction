@@ -1,22 +1,44 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 export function Hero() {
+    const images = [
+        "/images/hero-bg.png",
+        "/images/hero-bg1.png",
+        "/images/hero-bg2.png"
+    ]
+    const [currentIndex, setCurrentIndex] = useState(0)
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+        }, 4000)
+        return () => clearInterval(timer)
+    }, [images.length])
+
     return (
         <section className="relative h-[90vh] min-h-[600px] w-full bg-primary overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0 opacity-40">
-                <div 
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
-                    style={{ backgroundImage: 'url("/images/hero-bg.png")' }}
-                />
-                <div 
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
-                    style={{ backgroundImage: 'url("/images/hero-mobile-bg.png")' }}
-                />
+            {/* Background Image Slideshow */}
+            <div className="absolute inset-0 z-0">
+                <AnimatePresence>
+                    <motion.div
+                        key={currentIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.4 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
+                        className="absolute inset-0"
+                    >
+                        <div 
+                            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                            style={{ backgroundImage: `url("${images[currentIndex]}")` }}
+                        />
+                    </motion.div>
+                </AnimatePresence>
                 <div className="absolute inset-0 bg-black/50" />
             </div>
 
