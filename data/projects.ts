@@ -1,50 +1,56 @@
 export const projectsData = [
-    {
-        id: "project-1",
-        title: "",
-        category: "Residential",
-        location: "",
-        description: "",
-        image: "/images/Project1.png"
-    },
+
     {
         id: "project-2",
-        title: "Project 2",
+        title: "Kalpane",
         category: "Commercial",
-        location: "Location 2",
-        description: "Description 2",
-        image: "/images/project-placeholder.jpg"
+        location: "Domlur",
+        description: "",
+        image: "/images/Kalpane3D.png",
+        pdfUrl: "/pdfs/Kalpane3D.pdf"
     },
     {
         id: "project-3",
-        title: "Project 3",
-        category: "Residential",
-        location: "Location 3",
-        description: "Description 3",
-        image: "/images/project-placeholder.jpg"
+        title: "Cocky Bar",
+        category: "Commercial",
+        location: "Indira Nagar",
+        description: "",
+        image: "/images/Cockybar3D.png",
+        pdfUrl: "/pdfs/Cockybar3D.pdf"
     },
     {
         id: "project-4",
-        title: "Project 4",
-        category: "Renovation",
-        location: "Location 4",
-        description: "Description 4",
-        image: "/images/project-placeholder.jpg"
+        title: "Kila Kila Dessert Cafe",
+        category: "Commercial",
+        location: "Kammanahalli",
+        description: "",
+        image: "/images/kilakila3D.png",
+        pdfUrl: "/pdfs/KilaKila3D.pdf"
     },
     {
         id: "project-5",
-        title: "Project 5",
-        category: "Residential",
-        location: "Location 5",
-        description: "Description 5",
-        image: "/images/project-placeholder.jpg"
+        title: "Telugu Villas",
+        category: "Commercial",
+        location: "Marathalli",
+        description: "",
+        image: "/images/teluguvilla3D.png",
+        pdfUrl: "/pdfs/Teluguvilla3D.pdf"
     },
     {
         id: "project-6",
-        title: "Project 6",
+        title: "Telugu Villas",
         category: "Commercial",
-        location: "Location 6",
-        description: "Description 6",
-        image: "/images/project-placeholder.jpg"
+        location: "Marathalli",
+        description: "",
+        image: "/images/teluguvilla13D.png",
+        pdfUrl: "/pdfs/teluguvilla13D.pdf"
+    },
+    {
+        id: "project-1",
+        title: "Residential",
+        category: "Residential",
+        location: "Yerappanahalli",
+        description: "",
+        image: "/images/Project1.png"
     }
 ];

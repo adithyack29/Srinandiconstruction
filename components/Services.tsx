@@ -40,7 +40,7 @@ export function Services() {
                                 <Card
                                     className="group relative overflow-hidden transition-all hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/20 border-accent/20 border-2 h-full"
                                 >
-                                    <div className="relative h-48 w-full overflow-hidden bg-primary/10">
+                                    <div className="relative h-64 w-full overflow-hidden bg-primary/10">
                                         <motion.div
                                             animate={{ y: [0, -8, 0] }}
                                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: index * 0.1 }}
@@ -51,11 +51,11 @@ export function Services() {
                                     </div>
 
                                     {/* Icon Circle */}
-                                    <div className="absolute top-40 right-6 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-accent text-primary shadow-lg ring-4 ring-white transition-transform group-hover:scale-110 group-hover:rotate-12">
+                                    <div className="absolute top-56 right-6 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-accent text-primary shadow-lg ring-4 ring-white transition-transform group-hover:scale-110 group-hover:rotate-12">
                                         {Icon && <Icon className="h-8 w-8" />}
                                     </div>
 
-                                    <CardContent className="p-8 pt-10 relative bg-white h-[calc(100%-12rem)] flex flex-col justify-between">
+                                    <CardContent className="p-6 pt-10 relative bg-white h-[calc(100%-16rem)] flex flex-col justify-between">
                                         <div>
                                             <h3 className="mb-4 text-2xl font-bold text-primary transition-colors group-hover:text-accent">
                                                 {service.title}

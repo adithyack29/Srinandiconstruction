@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { MapPin } from "lucide-react"
+import { MapPin, FileText } from "lucide-react"
 import { SectionHeader } from "./SectionHeader"
 import { projectsData } from "@/data/projects"
 import { Button } from "./ui/button"
@@ -37,41 +37,55 @@ export function Projects() {
                             className="group relative overflow-hidden rounded-xl bg-gray-100 shadow-md"
                         >
                             {/* Project Image */}
-                            <div className="relative aspect-[4/3] w-full overflow-hidden">
+                            <div className="relative aspect-[3/2] w-full overflow-hidden">
                                 <div
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105"
                                     style={{ backgroundImage: `url('${project.image}')` }}
                                 />
 
                                 {/* Overlay gradient */}
-                                {(project.title || project.location || project.description) && (
-                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-80" />
+                                {(project.title || project.location) && (
+                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent opacity-90" />
                                 )}
 
                                 {/* Category Badge */}
-                                <span className="absolute left-6 top-6 rounded-full bg-accent px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
+                                <span className="absolute left-4 top-4 rounded-full bg-accent px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-primary shadow-sm">
                                     {project.category}
                                 </span>
 
                                 {/* Content Overlay */}
-                                {(project.title || project.location || project.description) && (
-                                    <div className="absolute bottom-0 left-0 w-full p-6 text-white sm:p-8">
-                                        {project.title && (
-                                            <h3 className="mb-2 text-2xl font-bold md:text-3xl">
-                                                {project.title}
-                                            </h3>
-                                        )}
-                                        {project.location && (
-                                            <div className="mb-4 flex items-center text-gray-300">
-                                                <MapPin className="mr-2 h-4 w-4 text-accent" />
-                                                <span className="text-sm font-medium">{project.location}</span>
+                                {(project.title || project.location) && (
+                                    <div className="absolute bottom-0 left-0 w-full p-6 text-white sm:p-7">
+                                        <div className="flex items-end justify-between">
+                                            <div className="flex-1">
+                                                {project.title && (
+                                                    <h3 className="mb-1 text-2xl font-extrabold md:text-3xl leading-tight">
+                                                        {project.title}
+                                                    </h3>
+                                                )}
+                                                {project.location && (
+                                                    <div className="flex items-center text-gray-300">
+                                                        <MapPin className="mr-2 h-4 w-4 text-accent" />
+                                                        <span className="text-sm font-semibold">{project.location}</span>
+                                                    </div>
+                                                )}
                                             </div>
-                                        )}
-                                        {project.description && (
-                                            <p className="line-clamp-2 text-sm text-gray-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                                {project.description}
-                                            </p>
-                                        )}
+
+                                            {project.pdfUrl && (
+                                                <Button
+                                                    variant="secondary"
+                                                    size="sm"
+                                                    className="bg-accent text-primary hover:bg-accent/90 border-none transition-all duration-300 ml-4 shrink-0"
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        window.open(project.pdfUrl, '_blank');
+                                                    }}
+                                                >
+                                                    <FileText className="mr-2 h-4 w-4" />
+                                                    View
+                                                </Button>
+                                            )}
+                                        </div>
                                     </div>
                                 )}
                             </div>

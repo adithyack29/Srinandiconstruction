@@ -19,8 +19,8 @@ const CONTACT_INFO = [
     {
         icon: MapPin,
         title: "Office Location",
-        details: "Lakeview Garden, K. Channasandra, Horamavu, Bangalore – 43",
-        action: "#map"
+        details: "#185 sri kanteshwara nilaya, vayu Vihar layout, Yerappanahalli Kada Agrahara, Bangalore 560077",
+        action: "https://www.google.com/maps/place/Vayu+vihar+layout/@13.0815607,77.6852323,17z/data=!4m10!1m2!2m1!1s%23185+sri+kanteshwara+nilaya+vayu+Vihar+layout+Yerappanahalli+Kada+Agrahara+Bangalore+560077!3m6!1s0x3bae1be64a8efb87:0x7bc3ef9f49cc2480!8m2!3d13.0815607!4d77.6878072!15sClsjMTg1IHNyaSBrYW50ZXNod2FyYSBuaWxheWEgdmF5dSBWaWhhciBsYXlvdXQgWWVyYXBwYW5haGFsbGkga2FkYSBhZ3JhaGFyYSBCYW5nYWxvcmUgNTYwMDc3kgEPaG91c2luZ19zb2NpZXR54AEA!16s%2Fg%2F11q4hfpv62?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D"
     },
     {
         icon: Clock,
@@ -86,7 +86,7 @@ export function ContactContent() {
                                                 <div>
                                                     <h3 className="mb-1 text-lg font-bold text-primary">{item.title}</h3>
                                                     {item.action ? (
-                                                        <a href={item.action} className="text-muted-foreground hover:text-accent transition-colors text-sm break-all font-medium">
+                                                        <a href={item.action} className="text-muted-foreground hover:text-accent transition-colors text-sm font-medium">
                                                             {item.details}
                                                         </a>
                                                     ) : (
@@ -108,7 +108,7 @@ export function ContactContent() {
                                 className="lg:col-span-3"
                             >
                                 <a 
-                                    href="https://www.google.com/maps/place/Shree+Nandi+Construction/@13.0458596,77.6807377,19z/data=!3m1!4b1!4m6!3m5!1s0x3bae11a373422c8b:0xeaa99269a934d60!8m2!3d13.0458596!4d77.6813814!16s%2Fg%2F11y8ty8_5x?entry=ttu&g_ep=EgoyMDI2MDMwOS4wIKXMDSoASAFQAw%3D%3D" 
+                                    href="https://www.google.com/maps/place/Vayu+vihar+layout/@13.0815607,77.6852323,17z/data=!4m10!1m2!2m1!1s%23185+sri+kanteshwara+nilaya+vayu+Vihar+layout+Yerappanahalli+Kada+Agrahara+Bangalore+560077!3m6!1s0x3bae1be64a8efb87:0x7bc3ef9f49cc2480!8m2!3d13.0815607!4d77.6878072!15sClsjMTg1IHNyaSBrYW50ZXNod2FyYSBuaWxheWEgdmF5dSBWaWhhciBsYXlvdXQgWWVyYXBwYW5haGFsbGkga2FkYSBhZ3JhaGFyYSBCYW5nYWxvcmUgNTYwMDc3kgEPaG91c2luZ19zb2NpZXR54AEA!16s%2Fg%2F11q4hfpv62?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="group block h-[400px] md:h-[600px] w-full overflow-hidden rounded-2xl bg-gray-200 border border-gray-100 relative shadow-lg"

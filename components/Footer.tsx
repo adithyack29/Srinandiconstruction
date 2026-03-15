@@ -75,14 +75,14 @@ export default function Footer() {
                             <li className="flex items-start">
                                 <MapPin className="mr-3 h-5 w-5 shrink-0 text-accent group-hover:text-accent" />
                                 <a
-                                    href="https://www.google.com/maps/place/Shree+Nandi+Construction/@13.0458596,77.6807377,19z/data=!3m1!4b1!4m6!3m5!1s0x3bae11a373422c8b:0xeaa99269a934d60!8m2!3d13.0458596!4d77.6813814!16s%2Fg%2F11y8ty8_5x?entry=ttu&g_ep=EgoyMDI2MDMwOS4wIKXMDSoASAFQAw%3D%3D"
+                                    href="https://www.google.com/maps/place/Vayu+vihar+layout/@13.0815607,77.6852323,17z/data=!4m10!1m2!2m1!1s%23185+sri+kanteshwara+nilaya+vayu+Vihar+layout+Yerappanahalli+Kada+Agrahara+Bangalore+560077!3m6!1s0x3bae1be64a8efb87:0x7bc3ef9f49cc2480!8m2!3d13.0815607!4d77.6878072!15sClsjMTg1IHNyaSBrYW50ZXNod2FyYSBuaWxheWEgdmF5dSBWaWhhciBsYXlvdXQgWWVyYXBwYW5haGFsbGkga2FkYSBhZ3JhaGFyYSBCYW5nYWxvcmUgNTYwMDc3kgEPaG91c2luZ19zb2NpZXR54AEA!16s%2Fg%2F11q4hfpv62?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="transition-colors hover:text-accent"
                                 >
-                                    Lakeview Garden<br />
-                                    K. Channasandra, Horamavu<br />
-                                    Bangalore – 43
+                                    #185 sri kanteshwara nilaya,<br />
+                                    vayu Vihar layout, Yerappanahalli,<br />
+                                    Kada Agrahara, Bangalore 560077
                                 </a>
                             </li>
                             <li className="flex items-center">
@@ -102,6 +102,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="mt-16 border-t border-white/10 py-6 text-center text-sm text-gray-400">
                     <p>© {new Date().getFullYear()} Sri Nandi Construction. All rights reserved.</p>
+                    <p className="mt-2 text-xs font-medium tracking-wider">GSTIN : 29BJBPT1199Q1Z8</p>
                 </div>
             </div>
         </footer>
